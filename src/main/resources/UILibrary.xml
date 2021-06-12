@@ -1,0 +1,22 @@
+<Pages>
+    <!--定义一个page对象-->
+    <Page keyword="登录页面">
+        <!--定义一个UIElement对象，对应的是页面上的每一个元素-->
+        <!--keyword:页面元素的关键字，by:定位元素的方法，value：选择器的值-->
+        <UIElement keyword="登录链接" by="partialLinkText" value="登录"></UIElement>
+        <UIElement keyword="账号密码登录链接" by="partialLinkText" value="账号密码登录"></UIElement>
+        <UIElement keyword="账号输入框" by="xpath" value="/html/body/div[2]/div/div/div[1]/div[2]/div[5]/div/div[2]/div/input"></UIElement>
+        <UIElement keyword="密码输入框" by="xpath" value="/html/body/div[2]/div/div/div[1]/div[2]/div[5]/div/div[3]/div/input[1]"></UIElement>
+        <UIElement keyword="登录按钮" by="xpath" value="/html/body/div[2]/div/div/div[1]/div[2]/div[5]/div/div[6]/div/button"></UIElement>
+        <UIElement keyword="登录按钮是否可见以及可操作" by="xpath" value="/html/body/div[2]/div/div/div[1]/div[2]/div[5]/div/div[6]/div/button"></UIElement>
+        <UIElement keyword="登陆时的错误提示" by="id" value="js_err_dom"></UIElement>
+        <UIElement keyword="登陆成功后头像弹框图片" by="xpath" value="/html/body/div[1]/div/div/div[3]/div/div[1]/div/div[1]/a[1]/img"></UIElement>
+        <UIElement keyword="登陆成功后头像弹框昵称" by="xpath" value="/html/body/div[1]/div/div/div[3]/div/div[1]/div/div[1]/p"></UIElement>
+    </Page>
+    <page>
+
+    </page>
+    <page>
+
+    </page>
+</Pages>
