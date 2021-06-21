@@ -16,6 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27,26 +28,19 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
-        </dependency>
+
         <!--selenium依赖-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -71,17 +65,40 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
         </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.0.0-beta7</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+
         <!--解析xml文件数据-->
         <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
         <dependency>
@@ -89,7 +106,25 @@
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
+        <!--字符串的处理类（：StringUtils)
+        随机数生成类：（RandomStringUtils）
+        数字类：NumberUtils
+        数组类 ：ArrayUtils
+        日期类：DateUtils
+        字符串类：StringUtile
+        -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
+        </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -104,6 +139,51 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19</version>
+                <configuration>
+                    <!--设置系统变量，在后面定制化测试报表的时候用得上-->
+                    <systemPropertyVariables>
+                        <!--不需要转义html代码-->
+                        <org.uncommons.reportng.escape-output>
+                            false
+                        </org.uncommons.reportng.escape-output>
+                    </systemPropertyVariables>
+                    <!--沪镍测试套件测试过程中执行失败的测试方法，继续执行剩余的测试类和测试方法-->
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <!--执行构建中的编码格式-->
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <skipTests>false</skipTests>
+                    <!--指定构建（执行测试套件）时要执行的套件文件的路径-->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>
+                            ./src/main/resources/testng.xml
+                        </suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                    <forkMode>always</forkMode>
                 </configuration>
             </plugin>
         </plugins>

@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *5、页面元素在页面中是否存在
  * showwait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("")));
  */
-public class wait extends Base {
+public class ShowWait extends Base {
 
 
     /**

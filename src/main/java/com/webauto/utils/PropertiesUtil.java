@@ -20,8 +20,31 @@ public class PropertiesUtil {
         }
     }
 
-    public static String getPath(){
-        return properties.getProperty("login.excel.path");
+    /**
+     * 获取用例excel文件路径
+     * @param key
+     * @return
+     */
+    public static String getCaseFilePath(String key){
+        return properties.getProperty(key);
+    }
+
+    /**
+     * 获取指定key的信息
+     * @param key
+     * @return
+     */
+    public static String getPageUrlPath(String key){
+        return properties.getProperty(key);
+    }
+
+    /**
+     * 获取页面元素的xml文件路径
+     * @param key
+     * @return
+     */
+    public static String getPagesElementFilePath(String key){
+        return properties.getProperty(key);
     }
 
 }

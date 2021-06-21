@@ -11,7 +11,7 @@ public class LoginUtil {
 
     static {
         //将所有数据解析封装到cases集合对象中
-        List<LoginData> list = ExcelUtils.load(PropertiesUtil.getPath(), "用例", LoginData.class);
+        List<LoginData> list = ExcelUtils.load(PropertiesUtil.getCaseFilePath("login.excel.path"), "用例", LoginData.class);
         loginDatas.addAll(list);
 //        for (LoginData loginData : loginDatas) {
 //            System.out.println(loginData);

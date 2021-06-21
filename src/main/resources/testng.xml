@@ -1,16 +1,32 @@
 <?xmlversion = "1.0" encoding= "UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="web自动化">
-    <test name="login">
+    <test name="登录">
         <classes>
-            <class name="com.webauto.cases.LoginCase">
+            <class name="com.webauto.cases.LoginCaseBehaviorDriven">
                 <methods>
-                    <!--<include name="testNegativeCases"/>-->
-                    <include name="testPositiveCases"/>
+                    <include name="testNegativeCases"/>
+                    <!--<include name="testPositiveCases"/>-->
                 </methods>
             </class>
         </classes>
     </test>
+
     <parameter name="browserType" value="chrome"></parameter>
+    <!--被替换的路径-->
+    <!--<parameter name="apacheDocumentRoot" value="D:\javaCode\21_ProjectStorageFolder\automatic\java\webauto\target\surefire-reports"></parameter>-->
+    <parameter name="apacheDocumentRoot" value="D:\javaCode\21_ProjectStorageFolder\automatic\java\webauto\test-output"></parameter>
+    <!--替换的地址-->
+    <parameter name="host" value="http://localhost"></parameter>
+
+    <!--配置监听器：监听测试套件执行的状态-->
+    <listeners>
+        <!--配置监听器 ：监听用例执行情况-->
+        <listener class-name="com.webauto.report.CustomListener"></listener>
+
+        <!--reportng报表生成类-->
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    </listeners>
 
 </suite>

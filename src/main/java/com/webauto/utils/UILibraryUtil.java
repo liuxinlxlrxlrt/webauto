@@ -23,7 +23,7 @@ public class UILibraryUtil {
     public static List<Page> pages = new ArrayList<>();
 
     static {
-        loadPages(PropertiesUtil.properties.getProperty("uiLibrary.path"));
+        loadPages(PropertiesUtil.getPagesElementFilePath("uiLibrary.path"));
     }
     /**
      * 根据页面关键字和元素关键字来完成元素定位
@@ -58,7 +58,7 @@ public class UILibraryUtil {
      * @param value
      */
     private static WebElement getVisibleElement(String by, String value) {
-        WebDriverWait wait = new WebDriverWait(Base.driver,20);
+        WebDriverWait wait = new WebDriverWait(Base.driver,10);
         By locator=null;
         WebElement element=null;
         if ("id".equalsIgnoreCase(by)){

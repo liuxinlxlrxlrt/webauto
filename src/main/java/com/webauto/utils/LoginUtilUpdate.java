@@ -1,11 +1,12 @@
 package com.webauto.utils;
 
 import com.webauto.pojo.LoginData;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginUtil {
+public class LoginUtilUpdate {
 
     public static List<LoginData> loginDatas = new ArrayList();
 
@@ -25,32 +26,15 @@ public class LoginUtil {
      * @return
      */
     public static Object[][] getDatas(String flag,String[] cellNames) {
-        List<LoginData> satisfied = new ArrayList();
+        List<Object> satisfied = new ArrayList();
         for (LoginData loginData : loginDatas) {
             if (flag.equals(loginData.getIsNegative())) {
                 satisfied.add(loginData);
             }
         }
 
-        Class<LoginData> clazz = LoginData.class;
-        Object[][] datas = new Object[satisfied.size()][cellNames.length];
-        for (int i = 0; i < satisfied.size(); i++) {
-            LoginData ld = satisfied.get(i);
-            for (int j = 0; j < cellNames.length; j++) {
-                //要反射的方法
-                String methodName = "get" + cellNames[j];
-                Method method = null;
-                try {
-                    method = clazz.getMethod(methodName);
-                    String value = (String) method.invoke(ld);
-                    datas[i][j] = value;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-        }
-        return datas;
+        Class clazz = LoginData.class;
+        return BaseUtil.assembleDatas(cellNames,satisfied,clazz);
     }
 
     public static void main(String[] args) {

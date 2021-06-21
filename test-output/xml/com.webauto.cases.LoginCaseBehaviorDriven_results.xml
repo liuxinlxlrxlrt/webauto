@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="登录"
+           tests="6"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="100.798">
+  <properties />
+  
+  
+            <testcase name="testNegativeCases" time="8.522" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+                <testcase name="testNegativeCases" time="6.934" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+                <testcase name="testNegativeCases" time="24.195" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+                <testcase name="testNegativeCases" time="23.974" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+                <testcase name="testNegativeCases" time="24.007" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+                <testcase name="testNegativeCases" time="13.166" classname="com.webauto.cases.LoginCaseBehaviorDriven" />
+      
+</testsuite>

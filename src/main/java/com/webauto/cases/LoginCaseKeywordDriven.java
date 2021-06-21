@@ -18,7 +18,10 @@ import org.testng.annotations.Test;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
-public class LoginCase extends Base {
+/**
+ * 关键字驱动
+ */
+public class LoginCaseKeywordDriven extends Base {
     /**
      * 测试所有的反向用例
      *
@@ -73,7 +76,7 @@ public class LoginCase extends Base {
 
 
     /**
-     * 测试所有的反向用例
+     * 测试所有的正向用例
      *
      * @param username
      * @param password
@@ -132,14 +135,14 @@ public class LoginCase extends Base {
 
     @DataProvider
     public Object[][] negativeDatas() {
-        String[] cellNames = {"Mobilephone", "Password", "ErrorMsg"};
+        String[] cellNames = {"MobilePhone", "Password", "ErrorMsg"};
         Object[][] datas = LoginUtil.getDatas("0",cellNames);
         return datas;
     }
 
     @DataProvider
     public Object[][] positiveDatas() {
-        String[] cellNames = {"Mobilephone", "Password"};
+        String[] cellNames = {"MobilePhone", "Password"};
         Object[][] datas = LoginUtil.getDatas("1",cellNames);
         return datas;
     }
