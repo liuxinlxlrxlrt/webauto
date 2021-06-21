@@ -8,6 +8,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * 显示等待
+ *1、页面元素在页面存在并且课件
+ *  showwait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("")));
+ *
+ *2、页面元素师傅在页面上可用和可被单击
+ *  showwait.until(ExpectedConditions.elementToBeClickable(By.xpath("")));
+ *
+ * 3、页面元素处于被选中状态
+ *  showwait.until(ExpectedConditions.elementToBeSelected(By.xpath("")));
+ *
+ *4、页面元素中是否包含特定的文本
+ *  showwait.until(ExpectedConditions.textToBePresentInElement(By.xpath("")));
+ *
+ *5、页面元素在页面中是否存在
+ * showwait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("")));
  */
 public class wait extends Base {
 

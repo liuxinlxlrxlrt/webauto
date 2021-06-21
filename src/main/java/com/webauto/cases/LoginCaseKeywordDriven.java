@@ -2,6 +2,7 @@ package com.webauto.cases;
 
 import com.webauto.base.Base;
 import com.webauto.utils.LoginUtil;
+import com.webauto.utils.PropertiesUtil;
 import com.webauto.utils.UILibraryUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,7 +28,7 @@ public class LoginCase extends Base {
      */
     @Test(dataProvider = "negativeDatas")
     public void testNegativeCases(String username, String password, String expected) throws InterruptedException {
-        driver.get("https://www.csdn.net/");
+        driver.get(PropertiesUtil.getPageUrlPath("login.page"));
         boolean flog=true;
         Thread.sleep(3000);
         WebDriver.Window window = driver.manage().window();
@@ -80,7 +81,7 @@ public class LoginCase extends Base {
      */
     @Test(dataProvider = "positiveDatas")
     public void testPositiveCases(String username, String password) throws InterruptedException {
-        driver.get("https://www.csdn.net/");
+        driver.get(PropertiesUtil.getPageUrlPath("login.page"));
         Thread.sleep(3000);
         WebDriver.Window window = driver.manage().window();
         window.maximize();
